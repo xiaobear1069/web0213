@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var num = 10;
+
+    var obj = {};
+
+
+    // null代表什么？  所有初始化为null，都是对象
+    num = null;
+    obj = null;
+
+    var module = (function (num) {
+
+        var obj = {
+            name:"iwen",
+            age:"18"
+        };
+
+        function getInfo() {
+            if(num){
+                console.log(num);
+            }else{
+                console.log("有问题");
+            }
+
+        }
+
+        return{
+            getInfo:getInfo
+        }
+
+    })(num || {});
+
+//    module.getInfo();
+
+
+
+</script>
+
+<script>
+
+    /*
+    * 公有化
+    * 私有化
+    *
+    * */
+
+
+    var module1 = (function () {
+
+
+        // 私有的
+        var num = 10;
+        var name = "iwen";
+
+
+        // 公有的
+
+        function getName() {
+            return name;
+        }
+
+        function getNum() {
+            return num;
+        }
+
+        //为什么这里需要return
+        return{
+            getName:getName,
+            getNum:getNum
+        }
+    })();
+
+    console.log(module1.getName());
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
